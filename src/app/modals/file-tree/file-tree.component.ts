@@ -1,7 +1,7 @@
-import { FlatTreeControl, NestedTreeControl } from '@angular/cdk/tree';
+import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MatTreeFlattener, MatTreeFlatDataSource, MatTreeNestedDataSource } from '@angular/material/tree';
+import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
 import { TreeNode } from 'src/app/interfaces/interfaces';
 import { ApiService } from 'src/app/services/api.service';
 

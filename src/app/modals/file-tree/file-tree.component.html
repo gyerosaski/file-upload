@@ -5,7 +5,7 @@
             <mat-radio-group [(ngModel)]="selectedFileDirectory">
                 <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
                     <ng-container *ngIf="node.name;else emptyDirectory">
-                        <mat-radio-button [value]="node.dir">
+                        <mat-radio-button [value]="node.dir" color="primary">
                             {{node.name}}
                         </mat-radio-button>
                     </ng-container>
@@ -19,14 +19,14 @@
                     <mat-icon class="mat-icon-rtl-mirror">
                         {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                     </mat-icon>
-                    <span>{{node.name}}</span>
                 </button>
+                <span>{{node.name}}</span>
             </mat-tree-node>
         </mat-tree>
     </mat-dialog-content>
     <div class="spacer"></div>
     <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close cdkFocusInitial>Cancel</button>
-        <button mat-button [disabled]="!selectedFileDirectory" (click)="onSelectionAcceptClick()">Ok</button>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary" [disabled]="!selectedFileDirectory" (click)="onSelectionAcceptClick()">Ok</button>
     </mat-dialog-actions>
 </div>

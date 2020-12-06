@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-top',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-top.component.scss']
 })
 export class NavTopComponent implements OnInit {
+  activeRoute: string;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) {
+    this.router.events
+      .subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          this.activeRoute = event.url;
+        }
+      });
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

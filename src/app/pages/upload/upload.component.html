@@ -1,1 +1,21 @@
-<button mat-button (click)="onBrowseClick()">Browse</button>
+<div class="p-5">
+    <div class="row mb-4 d-flex align-items-center">
+        <span class="col-1">file:</span>
+        <span class="col-7">
+            <input matInput type="text" class="w-100" [(ngModel)]="selectedFileDirectory" disabled>
+        </span>
+        <span class="col-4">
+            <button mat-flat-button color="primary" class="ml-3" (click)="onBrowseClick()">Browse</button>
+        </span>
+    </div>
+    <div class="row">
+        <div class="col-7 offset-1">
+            <button mat-flat-button color="primary" class="d-block mb-4"
+                [disabled]="!selectedFileDirectory || isUploading" (click)="onUploadClick()">Upload</button>
+            <mat-progress-bar [@fadeInOut]="isUploading ? 'fadeIn' : 'fadeOut'"
+                mode="indeterminate">
+            </mat-progress-bar>
+            <span [@fadeInOut]="isUploadSuccess ? 'fadeIn' : 'fadeOut'">Upload Complete!</span>
+        </div>
+    </div>
+</div>
