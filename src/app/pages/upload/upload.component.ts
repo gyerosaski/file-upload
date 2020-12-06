@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FileTreeComponent } from 'src/app/modals/file-tree/file-tree.component';
 
 @Component({
   selector: 'app-upload',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modal: MatDialog
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onBrowseClick() {
+    const modalRef = this.modal.open(FileTreeComponent);
+    modalRef.afterClosed().subscribe(res => {
+
+    });
   }
 
 }
