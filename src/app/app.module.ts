@@ -12,6 +12,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NavTopComponent } from './components/nav-top/nav-top.component';
 import { FileTreeComponent } from './modals/file-tree/file-tree.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { MatTreeModule } from '@angular/material/tree';
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
-    MatTreeModule
+    MatTreeModule,
+    MatIconModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

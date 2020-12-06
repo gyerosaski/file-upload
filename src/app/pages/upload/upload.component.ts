@@ -17,9 +17,12 @@ export class UploadComponent implements OnInit {
   }
 
   onBrowseClick() {
-    const modalRef = this.modal.open(FileTreeComponent);
+    const modalRef = this.modal.open(FileTreeComponent, {
+      minWidth: '480px',
+      height: '580px'
+    });
     modalRef.afterClosed().subscribe(res => {
-
+      console.log(res);
     });
   }
 

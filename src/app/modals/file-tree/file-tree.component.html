@@ -1,12 +1,32 @@
-<h2 mat-dialog-title>Browse for the file</h2>
-<mat-dialog-content class="mat-typography">
-    <mat-tree>
-        <mat-tree-node> parent node </mat-tree-node>
-        <mat-tree-node> -- child node1 </mat-tree-node>
-        <mat-tree-node> -- child node2 </mat-tree-node>
-    </mat-tree>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Select</button>
-</mat-dialog-actions>
+<div class="modal-container">
+    <h2 mat-dialog-title>Browse for the file</h2>
+    <mat-dialog-content class="mat-typography">
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+            <mat-radio-group [(ngModel)]="selectedFileDirectory">
+                <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                    <ng-container *ngIf="node.name;else emptyDirectory">
+                        <mat-radio-button [value]="node.dir">
+                            {{node.name}}
+                        </mat-radio-button>
+                    </ng-container>
+                    <ng-template #emptyDirectory>
+                        <span>Empty directory</span>
+                    </ng-template>
+                </mat-tree-node>
+            </mat-radio-group>
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                    <mat-icon class="mat-icon-rtl-mirror">
+                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                    </mat-icon>
+                    <span>{{node.name}}</span>
+                </button>
+            </mat-tree-node>
+        </mat-tree>
+    </mat-dialog-content>
+    <div class="spacer"></div>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close cdkFocusInitial>Cancel</button>
+        <button mat-button [disabled]="!selectedFileDirectory" (click)="onSelectionAcceptClick()">Ok</button>
+    </mat-dialog-actions>
+</div>
