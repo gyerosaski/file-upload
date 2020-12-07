@@ -1,6 +1,15 @@
-<ul>
-    <li *ngFor="let record of history$ | async">
-        {{record.dir}}
-    </li>
-</ul>
-<button mat-flat-button color="primary" (click)="onClearClick()">Clear</button>
+<ng-container *ngIf="history$ | async as history">
+    <ng-container *ngIf="history.length;else emptyHistory">
+        <ul>
+            <li *ngFor="let record of history">
+                {{record.dir}}
+            </li>
+        </ul>
+        <button mat-flat-button color="primary" (click)="onClearClick()">Clear</button>
+    </ng-container>
+    <ng-template #emptyHistory>
+        <div>History is empty</div>
+    </ng-template>
+</ng-container>
+
+

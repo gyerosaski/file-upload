@@ -47,7 +47,7 @@ export class UploadComponent {
         dir: this.selectedFileDirectory,
         id: guid()
       })
-    },500);
+    },5000);
   }
 
 }

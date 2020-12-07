@@ -9,7 +9,6 @@ import { HistoryComponent } from './pages/history/history.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { NavTopComponent } from './components/nav-top/nav-top.component';
 import { FileTreeComponent } from './modals/file-tree/file-tree.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,14 +20,16 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NavigatorComponent } from './components/navigator/navigator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
     HistoryComponent,
-    NavTopComponent,
-    FileTreeComponent
+    FileTreeComponent,
+    NavigatorComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +47,7 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatProgressBarModule,
     NgbModule,
+    MatSidenavModule,
     environment.production ? [] : AkitaNgDevtools.forRoot()
   ],
   bootstrap: [AppComponent]

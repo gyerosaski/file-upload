@@ -2,14 +2,8 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
-import { TreeNode } from 'src/app/interfaces/interfaces';
+import { FlatNode, TreeNode } from 'src/app/interfaces/interfaces';
 import { ApiService } from 'src/app/services/api.service';
-
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 @Component({
   selector: 'app-file-tree',
@@ -67,7 +61,7 @@ export class FileTreeComponent implements OnInit {
     };
   }
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
+  treeControl = new FlatTreeControl<FlatNode>(
       node => node.level, node => node.expandable);
 
   treeFlattener = new MatTreeFlattener(
@@ -75,7 +69,7 @@ export class FileTreeComponent implements OnInit {
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  hasChild = (_: number, node: FlatNode) => node.expandable;
 
 
 }

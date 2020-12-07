@@ -3,3 +3,9 @@ export interface TreeNode {
     dir: string;
     children?: TreeNode[] | undefined;
 }
+
+export interface FlatNode {
+    expandable: boolean;
+    name: string;
+    level: number;
+}
