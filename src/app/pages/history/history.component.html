@@ -1,1 +1,6 @@
-<p>history works!</p>
+<ul>
+    <li *ngFor="let record of history$ | async">
+        {{record.dir}}
+    </li>
+</ul>
+<button mat-flat-button color="primary" (click)="onClearClick()">Clear</button>

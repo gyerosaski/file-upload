@@ -27,7 +27,7 @@ export class FileTreeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.api.fileTreeGet().subscribe((res: string) => {
+    this.api.directoriesGet().subscribe((res: string) => {
       this.dirs = res.split('\n').filter(dir => dir);
       this.dirs.forEach(dir => {
         const temp = dir.trim().split('/');

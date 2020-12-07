@@ -7,10 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
-  fileTreeGet() {
+  directoriesGet() {
     return this.http.get('assets/Sample-Files.txt', { responseType: 'text' });
   }
+
 }

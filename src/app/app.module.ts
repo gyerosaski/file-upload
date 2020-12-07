@@ -19,6 +19,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatRadioModule,
     MatInputModule,
     MatProgressBarModule,
-    NgbModule
+    NgbModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot()
   ],
   bootstrap: [AppComponent]
 })

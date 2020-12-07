@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "file-upload"
+  "defaultProject": "file-upload",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }
