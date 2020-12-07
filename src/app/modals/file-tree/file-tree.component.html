@@ -15,12 +15,14 @@
                 </mat-tree-node>
             </mat-radio-group>
             <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
-                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-                    <mat-icon class="mat-icon-rtl-mirror">
-                        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-                    </mat-icon>
-                </button>
-                <span>{{node.name}}</span>
+                <div class="w-100 c-clicable-row" matTreeNodeToggle>
+                    <button mat-icon-button [attr.aria-label]="'Toggle ' + node.name">
+                        <mat-icon class="mat-icon-rtl-mirror">
+                            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                        </mat-icon>
+                    </button>
+                    <span>{{node.name}}</span>
+                </div>
             </mat-tree-node>
         </mat-tree>
     </mat-dialog-content>

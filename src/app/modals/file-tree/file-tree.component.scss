@@ -9,3 +9,9 @@
 .spacer {
   flex-grow: 1;
 }
+.c-clicable-row {
+  cursor: pointer;
+  &:hover {
+    background: #f5f5f5;
+  }
+}

@@ -26,7 +26,8 @@ export class UploadComponent {
   onBrowseClick() {
     const modalRef = this.modal.open(FileTreeComponent, {
       minWidth: '480px',
-      height: '580px'
+      height: '580px',
+      panelClass: 'dialog-responsive'
     });
     modalRef.afterClosed().subscribe(res => {
       if (res) {
