@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { guid } from '@datorama/akita';
 import { FadeInOutAnimation } from 'src/app/animations/animations';
@@ -13,18 +13,15 @@ import { HistoryService } from 'src/app/store/history.service';
     FadeInOutAnimation
   ]
 })
-export class UploadComponent implements OnInit {
+export class UploadComponent {
   selectedFileDirectory: string;
   isUploading = false;
   isUploadSuccess = false;
 
   constructor(
     private modal: MatDialog,
-    private history: HistoryService
+    private historyService: HistoryService
   ) { }
-
-  ngOnInit(): void {
-  }
 
   onBrowseClick() {
     const modalRef = this.modal.open(FileTreeComponent, {
@@ -46,7 +43,7 @@ export class UploadComponent implements OnInit {
     setTimeout(() => {
       this.isUploading = false;
       this.isUploadSuccess = true;
-      this.history.add({
+      this.historyService.add({
         dir: this.selectedFileDirectory,
         id: guid()
       })
