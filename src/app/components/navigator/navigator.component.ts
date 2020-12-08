@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -7,12 +7,13 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: './navigator.component.html',
   styleUrls: ['./navigator.component.scss']
 })
-export class NavigatorComponent implements OnInit {
+export class NavigatorComponent {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.width = event.target.innerWidth;
   }
-  width;
+  breakpoint = 577;
+  width: number;
   activeRoute: string;
 
   constructor(
@@ -26,9 +27,6 @@ export class NavigatorComponent implements OnInit {
         }
       });
     this.width = this.document.documentElement.clientWidth;
-  }
-
-  ngOnInit() {
   }
 
 }

@@ -5,11 +5,9 @@
                 {{record.dir}}
             </li>
         </ul>
-        <button mat-flat-button color="primary" (click)="onClearClick()">Clear</button>
+        <button mat-flat-button color="primary" class="ml-3" (click)="onClearClick()">Clear</button>
     </ng-container>
     <ng-template #emptyHistory>
-        <div>History is empty</div>
+        <div class="text-center">History is empty</div>
     </ng-template>
 </ng-container>
-
-

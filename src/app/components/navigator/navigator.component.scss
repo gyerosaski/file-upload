@@ -1,15 +1,18 @@
-.example-container {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .example-sidenav {
+.c-main-container {
+  width: 100%;
+  height: 100%;
+  .c-sidenav {
     padding: 20px;
   }
+}
+
+.c-sidenav-container {
+  width: 700px;
+  .c-sidenav-toggle {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+

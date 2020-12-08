@@ -1,26 +1,32 @@
-<mat-sidenav-container class="example-container" autosize>
-    <mat-sidenav class="example-sidenav" mode="over" [opened]="width < 680" #sideNav>
+<mat-sidenav-container class="c-main-container" autosize>
+    <mat-sidenav class="c-sidenav" mode="over" #sideNav>
         <div class="d-flex flex-column">
-            <button mat-flat-button [color]="activeRoute === '/upload' ? 'primary' : undefined" class="mb-3"
-                routerLink="/upload">Upload
-                page</button>
-            <button mat-flat-button [color]="activeRoute === '/history' ? 'primary' : undefined"
-                routerLink="/history">History page</button>
+            <ng-container *ngTemplateOutlet="navButtons"></ng-container>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="d-flex justify-content-center">
-            <div style="width: 700px;">
-                <mat-toolbar *ngIf="width > 680">
-                    <button mat-flat-button [color]="activeRoute === '/upload' ? 'primary' : undefined"
-                        routerLink="/upload">Upload page</button>
-                    <button mat-flat-button [color]="activeRoute === '/history' ? 'primary' : undefined" class="ml-3"
-                        routerLink="/history">History page</button>
+            <div class="c-sidenav-container">
+                <mat-toolbar *ngIf="width > breakpoint">
+                    <ng-container *ngTemplateOutlet="navButtons"></ng-container>
                 </mat-toolbar>
-                <div class="p-5">
+                <button mat-mini-fab color="primary" *ngIf="width < breakpoint" (click)="sideNav.toggle()"
+                    class="c-sidenav-toggle">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div class="p-3 p-sm-5 pt-5">
                     <router-outlet></router-outlet>
                 </div>
             </div>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
+
+<ng-template #navButtons>
+    <button mat-flat-button [color]="activeRoute === '/upload' ? 'primary' : undefined"
+        (click)="width < breakpoint ? sideNav.close() : undefined" class="mb-3 mb-sm-0" routerLink="/upload">Upload
+        page</button>
+    <button mat-flat-button [color]="activeRoute === '/history' ? 'primary' : undefined"
+        (click)="width < breakpoint ? sideNav.close() : undefined" class="ml-sm-3" routerLink="/history">History
+        page</button>
+</ng-template>

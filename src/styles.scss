@@ -6,11 +6,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 540px) {
     .dialog-responsive {
         width: 95% !important;
         min-width: unset !important;
         max-width: unset !important;
         height: 95% !important;
     }
+}
+
+.mat-radio-label {
+    margin: 0;
 }
